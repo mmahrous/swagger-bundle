@@ -1,5 +1,7 @@
 # Swagger Bundle 
 This is a bundle for Swagger UI and Swagger Editor embdedd with backend option to allow you smooth editing and viewing expreince. 
+
+You can show all the versions of the specs file and revert the commits.
 ## Steps 
 1. Clone the repo.
 2. Run this commands to get it to run 
@@ -27,6 +29,10 @@ $ docker run -it -p 80:8080 -v ~/files:/app/files -d --name swagger theddot/swag
 go to `[localhost or server ip]/`
 #### Swagger Editor
 go to `[localhost or server ip]/editor`
+#### Specs file versioning 
+You can revert a commit if anything happened
+go to `[localhost or server ip]/versions`
+
 
 #### License
 Licensed under MIT
