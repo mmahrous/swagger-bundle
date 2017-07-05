@@ -5,7 +5,13 @@ This is a bundle for Swagger UI and Swagger Editor embdedd with backend option t
 2. Run this commands to get it to run 
 ```sh
 $ npm install
-$ npm build
+$ sh build.sh
 $ npm start
 ```
-Or you can use docker 
+Or you can use build docker image and run with docker
+
+Share a local directory to save the yaml file
+```sh
+$ docker build -t swagger .
+$ docker run -it -p 80:8080 -v ~/files:/app/files -d --name swagger swagger
+```
