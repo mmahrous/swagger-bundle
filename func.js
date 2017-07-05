@@ -1,7 +1,6 @@
 'use strict';
 const git = require('simple-git')('files')
-				.addConfig('user.name', process.env.gituser || 'swagger')
-        		.addConfig('user.email', process.env.gitemail || 'swagger@swagger.com');
+
 const func = {}
 
 func.git = {}

@@ -8,6 +8,10 @@ ADD . .
 # Update package manager and install packages
 RUN apk update && apk add ca-certificates git wget unzip openssl
 
+# Git global
+RUN git config --global user.email "swagger@editor.com"
+RUN git config --global user.name "swagger"
+
 # Fetch swagger editor files
 RUN wget https://github.com/swagger-api/swagger-editor/releases/download/v2.10.4/swagger-editor.zip
 RUN unzip swagger-editor.zip
