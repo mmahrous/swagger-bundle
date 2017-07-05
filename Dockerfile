@@ -13,7 +13,7 @@ RUN wget https://github.com/swagger-api/swagger-editor/releases/download/v2.10.4
 RUN unzip swagger-editor.zip
 # Allow backend backup 
 RUN sed -i 's%"useBackendForStorage": false%"useBackendForStorage"\: true%g' "swagger-editor/config/defaults.json"
-RUN sed -i 's%"useYamlBackend": false%"useYamlBackend": true%g"\' "swagger-editor/config/defaults.json"
+RUN sed -i 's%"useYamlBackend": false%"useYamlBackend": true%g' "swagger-editor/config/defaults.json"
 RUN sed -i 's%"disableNewUserIntro": false%"disableNewUserIntro": true%g' "swagger-editor/config/defaults.json"
 
 # Fetch swager UI files
