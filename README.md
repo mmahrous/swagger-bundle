@@ -15,3 +15,10 @@ Share a local directory to save the yaml file
 $ docker build -t swagger .
 $ docker run -it -p 80:8080 -v ~/files:/app/files -d --name swagger swagger
 ```
+#### License
+Licensed under MIT
+
+#### Author
+The D. GmbH - M. Mahrous
+
+Feel free to contact us [M. Mahrous](mailto:m.mahrous@thed.io) and improve the code.
