@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Specs file versioning - Swagger Bundle</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.bootgrid.min.css">
+	<!-- Import Javascripts lib -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.bootgrid.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h3>Specs file versions</h3>
+		<table id="grid-data" class="table table-condensed table-hover table-striped">
+	    <thead>
+	        <tr>
+	            <th data-column-id="hash" data-type="numeric">Hash</th>
+	            <th data-column-id="message">Message</th>
+	            <th data-column-id="date" data-order="desc">Date</th>
+	             <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th>
+	        </tr>
+	    </thead>
+	</div>
+</table>
+<script type="text/javascript">
+	var grid = $("#grid-data").bootgrid({
+	    ajax: true,
+	    post: function ()
+	    {
+	        return {};
+	    },
+	    url: "/specs/git/list",
+	    formatters: {
+	        "commands": function(column, row)
+	        {
+	            return  "<button type=\"button\" class=\"btn btn-xs btn-default command-delete btn-danger\" data-hash=\"" + row.hash + "\"><span class=\"glyphicon glyphicon-trash\"></span> Delete</button>";
+	        }
+	    }
+	}).on("loaded.rs.jquery.bootgrid", function()
+	{
+	    grid.find(".command-delete").on("click", function(e)
+	    {	
+	    	$.post( "/specs/git/revert", $(this).data("hash") , function( data ) {
+				alert(data);
+			});
+	    });
+	});
+</script>
+<style type="text/css">
+	html,
+	body {
+	    height: 100%;
+	}
+
+	.container {
+	    height: 100%;
+	    width: 70%;
+	    margin: auto;
+	}
+
+</style>
+</body>
+</html>
