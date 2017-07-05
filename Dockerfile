@@ -11,6 +11,10 @@ RUN apk update && apk add ca-certificates git wget unzip openssl
 # Fetch swagger editor files
 RUN wget https://github.com/swagger-api/swagger-editor/releases/download/v2.10.4/swagger-editor.zip
 RUN unzip swagger-editor.zip
+# Allow backend backup 
+RUN sed -i 's%"useBackendForStorage": false%"useBackendForStorage"\: true%g' "swagger-editor/config/defaults.json"
+RUN sed -i 's%"useYamlBackend": false%"useYamlBackend": true%g"\' "swagger-editor/config/defaults.json"
+RUN sed -i 's%"disableNewUserIntro": false%"disableNewUserIntro": true%g' "swagger-editor/config/defaults.json"
 
 # Fetch swager UI files
 # RUN git config http.postBuffer 524288000

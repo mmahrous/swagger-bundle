@@ -6,7 +6,10 @@ unzip swagger-editor.zip
 
 # Fetch swager UI files
 git clone https://github.com/swagger-api/swagger-ui.git
-
+# Allow backend backup 
+sed -i 's%"useBackendForStorage": false%"useBackendForStorage"\: true%g' "swagger-editor/config/defaults.json"
+sed -i 's%"useYamlBackend": false%"useYamlBackend": true%g"\' "swagger-editor/config/defaults.json"
+sed -i 's%"disableNewUserIntro": false%"disableNewUserIntro": true%g' "swagger-editor/config/defaults.json"
 # npm
 npm install
 
