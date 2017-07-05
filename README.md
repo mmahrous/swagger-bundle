@@ -15,6 +15,12 @@ Share a local directory to save the yaml file
 $ docker build -t swagger .
 $ docker run -it -p 80:8080 -v ~/files:/app/files -d --name swagger swagger
 ```
+Or you can use image from docker hub
+```sh
+$ docker pull theddot/swagger-bundle
+$ docker run -it -p 80:8080 -v ~/files:/app/files -d --name swagger theddot/swagger-bundle
+```
+
 ## Browse 
 
 #### Swagger UI 
